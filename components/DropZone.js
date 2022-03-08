@@ -121,9 +121,12 @@ const DropZone = ({ data, dispatch }) => {
       </div>
       {/* Pass the selectect or dropped files as props */}
       <FilePreview fileData={data} />
-      <button className={styles.uploadBtn} onClick={uploadFiles}>
-        Upload
-      </button>
+      {/* Only show upload button after selecting atleast 1 file */}
+      {data.fileList.length > 0 && (
+        <button className={styles.uploadBtn} onClick={uploadFiles}>
+          Upload
+        </button>
+      )}
     </>
   );
 };
